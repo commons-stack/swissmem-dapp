@@ -336,6 +336,7 @@ const DonateModal = props => {
       <div className="modal-background" onClick={onClose} />
       <div className="modal-card">
         <header className="modal-card-head">
+          <p className="modal-card-title" />
           <button className="delete" aria-label="close" onClick={onClose} />
         </header>
         <section className="modal-card-body">
