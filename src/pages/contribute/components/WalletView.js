@@ -67,19 +67,17 @@ const Comp = ({
       });
       return (
         isReady && (
-          <div key={coin.symbol} className="title is-6 level mb-04">
-            <div className="level-left mb-04">
-              <span>Total available balance</span>
-              <span className="icon info-icon-small is-small has-text-info">
-                <i className="fas fa-info-circle" />
-              </span>
-            </div>
-            <div className="level-right has-text-right">
-              {coin.status || coin.balanceFormatted || '~'} {coin.symbol}{' '}
-              <span className="icon is-small has-text-light">
-                &nbsp;
+          <div key={coin.symbol} className="title level mb-04">
+            <div className="subtitle level-left mb-04">
+              <span className="icon has-text-light mr-02">
                 <img src={logo.src} alt={coin.symbol} />
+                &nbsp;
               </span>
+              {coin.symbol}
+            </div>
+            <div className="subtitle level-right mb-04">
+              {coin.status || coin.balanceFormatted || '~'}
+              {coin.symbol}
             </div>
           </div>
         )
@@ -103,11 +101,11 @@ const Comp = ({
           {coin.symbol}
         </div>
         {balances && balances[address] ? (
-          <div className="subtitle level-right">
+          <div className="subtitle level-right mb-04">
             {coin.balanceFormatted} {coin.symbol}
           </div>
         ) : (
-          <div className="subtitle level-right">
+          <div className="subtitle level-right mb-04">
             <span>~DAI</span>
           </div>
         )}
@@ -173,10 +171,20 @@ const Comp = ({
         </div>
       </div>
       <br />
-      <p className="title is-text-overflow mb-2">Total Available Balance</p>
+      <span className="title is-text-overflow mb-2">
+        Total Available Balance{' '}
+        <a
+          href={`https://etherscan.io/address/${address}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fas fa-info-circle is-size-7" />
+        </a>
+      </span>
 
       {address && isReady ? (
         <>
+          <p className="truncate is-size-7 mb-2">{address}</p>
           {daiBalance}
           {otherBalances}
         </>

@@ -77,7 +77,7 @@ const Comp = ({ onClose }) => {
                 </div>
               </div>
               <div className="level-item">
-                <div className="field">
+                <div className="field" style={{ maxWidth: `100px` }}>
                   <div className="control">
                     <input
                       className="input"
@@ -106,7 +106,7 @@ const Comp = ({ onClose }) => {
             <div className="level-right">
               <div className="level-item">
                 <div className="level-item">
-                  <div className="field">
+                  <div className="field" style={{ maxWidth: `100px` }}>
                     <div className="control">
                       <input
                         className="input"

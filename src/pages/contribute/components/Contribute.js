@@ -12,7 +12,14 @@ import Cstk from '../../../assets/cstk.svg';
 import ContributeForm from './ContributeForm';
 import { OnboardContext } from '../../../components/OnboardProvider';
 
-const Comp = ({ agreedtandc, agreedstatutes, userIsWhiteListed, balances, hasDonated, onCloseContributeThanks }) => {
+const Comp = ({
+  agreedtandc,
+  agreedstatutes,
+  userIsWhiteListed,
+  balances,
+  hasDonated,
+  onCloseContributeThanks,
+}) => {
   const viewStates = Object.freeze({
     INIT: 1,
     WAITINGTOCONTRIBUTE: 2,
@@ -161,7 +168,7 @@ const Comp = ({ agreedtandc, agreedstatutes, userIsWhiteListed, balances, hasDon
 
           <br />
           <p>
-            You can pay membership dues with DAI only. You can acquire DAI on{' '}
+            You can pay membership dues with DAI only. You can acquire DAI i.e. on{' '}
             <a rel="noopener noreferrer" target="_blank" href="https://1inch.exchange">
               1inch.exchange
             </a>

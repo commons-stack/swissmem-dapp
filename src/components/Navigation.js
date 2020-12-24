@@ -57,7 +57,13 @@ const Comp = () => {
                 </Link>
               </div>
               <div className={activeNavItem === 3 ? 'navbar-item is-active' : 'navbar-item'}>
-                <span>Need help?</span>
+                <a
+                  href="mailto:info@commonsstack.foundation"
+                  subject="I have a problem getting CSTK tokens"
+                  className="support-link"
+                >
+                  <span>Need help?</span>
+                </a>
               </div>
             </div>
 

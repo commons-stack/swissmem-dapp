@@ -69,7 +69,7 @@ const toBN = value => new pureWeb3.utils.BN(value);
 const initialViewState = VIEW_LOADING;
 const reducerWrapper = (_state, _action) => {
   // To test views uncomment below line and change and change initialViewState value above
-  // return _state;
+  // return _state
 
   // console.log('reducer:');
   // console.log('action:', _action);
@@ -231,56 +231,89 @@ const DonateModal = props => {
   const contents = {};
 
   contents[VIEW_LOADING] = (
-    <>
-      <figure className="image is-32x32">
+    <div className="modal-content">
+      <figure className="image is-64x64">
         <img alt="spinner" src={spinner} />
       </figure>
-      <p>Loading...</p>
-    </>
+      <h2>Loading</h2>
+    </div>
   );
 
   contents[VIEW_READY_TO_APPROVE] = (
     <>
-      <p>You first need to approve access to your DAI balance and then donate</p>
+      <h2 className="mb-2">
+        You first need to approve access to your DAI balance before you can donate
+      </h2>
       <p>Allowance needed: {amount} DAI</p>
       <p>Current Allowance: {allowance} DAI</p>
     </>
   );
 
   contents[VIEW_APPROVING] = (
-    <>
-      <figure className="image is-32x32">
-        <img alt="spinner" src={spinner} />
-      </figure>
-      <p>Approving...</p>
-    </>
+    <div className="modal-content">
+      <h2>Transaction sent - Approving DAI balance</h2>
+    </div>
   );
 
   contents[VIEW_APPROVE_FAILED] = (
     <>
-      <p>approve failed!</p>
+      <h2 className="has-text-centered pb-2 red">
+        <span role="img" aria-label="warning">
+          ⚠️
+        </span>{' '}
+        Transaction failed!
+      </h2>
+      <p>
+        {' '}
+        Please try again, or{' '}
+        <a
+          href="mailto:info@commonsstack.foundation"
+          subject="I have a problem getting CSTK tokens"
+          className="support-link"
+        >
+          contact support
+        </a>{' '}
+        if you experience further difficulties.
+      </p>
     </>
   );
 
   contents[VIEW_ENOUGH_ALLOWANCE] = (
     <>
-      <p>Ready to send donation</p>
-      <p>Press the conate button to execute the donation</p>
+      <h2 className="has-text-centered pb-2">Ready to send your dues!</h2>
+      <p className="has-text-centered subtitle">
+        Press the button below to execute the transaction
+      </p>
     </>
   );
 
   contents[VIEW_DONATING] = (
-    <>
-      <figure className="image is-32x32">
-        <img alt="spinner" src={spinner} />
-      </figure>
-      <p>waiting for donation transction to complete...</p>
-    </>
+    <div className="modal-content">
+      <h2 className="has-text-centered pb-2">Transaction sent</h2>
+      <p className="has-text-centered subtitle">Waiting for the transaction to be completed</p>
+    </div>
   );
 
   contents[VIEW_DONATING_FAILED] = (
     <>
-      <p>donating failed :(</p>
+      <h2 className="has-text-centered pb-2 red">
+        <span role="img" aria-label="warning">
+          ⚠️
+        </span>{' '}
+        Transaction failed!
+      </h2>
+      <p>
+        {' '}
+        Please try again, or{' '}
+        <a
+          href="mailto:info@commonsstack.foundation"
+          subject="I have a problem getting CSTK tokens"
+          className="support-link"
+        >
+          contact support
+        </a>{' '}
+        if you experience further difficulties.
+      </p>
     </>
   );
 
@@ -303,7 +336,7 @@ const DonateModal = props => {
       <div className="modal-background" onClick={onClose} />
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Contribute</p>
+          <p className="modal-card-title" />
           <button className="delete" aria-label="close" onClick={onClose} />
         </header>
         <section className="modal-card-body">
